@@ -1,7 +1,7 @@
 # CytoTalk<br />
 ### Version 1.2 (April 15th, 2020)<br />
 
-### Overview<br />
+* ## Overview<br />
 Cell-cell communication in a tissue microenvironment is mediated by signal transduction pathways. Single-cell technology has opened the door for studying signal transduction at much higher resolution in a complex tissue. Currently, there is a lack of analytical methods to infer signaling pathways based on single-cell omics data. Here we introduce a computational method, **CytoTalk**, for _de novo_ construction of **cell type-specific signaling networks** using single-cell transcriptomics data. Using an integrated intracellular and intercellular gene network as the input, CytoTalk identifies candidate pathways using prize-collecting Steiner forest (PCSF) algorithm. CytoTalk is implemented using MATLAB (version >= R2018a), R (version >= 3.5.0) and Python (version >= 3.7.0).
 
 <br />
@@ -10,7 +10,28 @@ Cell-cell communication in a tissue microenvironment is mediated by signal trans
 
 
 
-### Required R and Python packages and system environment variables<br />
+
+* ## Prepare input files<br />
+1. CytoTalk requires a comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the log2-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells.<br />
+
+>>The files should be named as:<br />
+>>**“scRNAseq_CellTypeA.csv”<br />
+>>“scRNAseq_CellTypeB.csv”<br />
+>>“scRNAseq_CellTypeC.csv”<br />
+>>“scRNAseq_CellTypeD.csv”<br />
+>>“scRNAseq_CellTypeE.csv”<br />
+>>…<br />**
+>>Tips:
+>>>(1) Csv files for all cell types should be copied into the /CytoTalk/ folder since all of them are needed for computing cell-type-specificity of gene expression in the CytoTalk algorithm.
+
+>>>(2) The /CytoTalk/ folder can only be used **once** for predicting the signaling network between cell type A and cell type B. Please make sure the gene expression data of your interested cell type pair are stored in “scRNAseq_CellTypeA.csv” and “scRNAseq_CellTypeB.csv”. Examples are in the /ExampleInput/ folder.
+
+2. CytoTalk also requires a **“Species.txt"** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported. An example is in the folder /ExampleInput/ folder. This file should be also copied into the /CytoTalk/ folder.
+
+
+
+
+* ## Install required R and Python packages and set system environment variables<br />
 1. The following four R packages should be installed (R version ≥ 3.5.0 is recommended). 
 
 >>(1) “entropy”: https://cran.r-project.org/web/packages/entropy/index.html
@@ -27,7 +48,7 @@ install.packages("infotheo") #R
 ```R
 install.packages("doParallel") #R
 ```
->>Tip: set the number of logical cores available in Line 13 of the R scripts “comp_MIcoexp_TypA_WinPara.R” and “comp_MIcoexp_TypB_WinPara.R”. The default is 14 logical cores. 
+>>Tip: Set the number of logical cores available in Line 13 of the R scripts “comp_MIcoexp_TypA_WinPara.R” and “comp_MIcoexp_TypB_WinPara.R”. The default is 14 logical cores. 
 
 >>(4) “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
 ```R
@@ -64,7 +85,7 @@ export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH #Bash
 
 
 
-
+* ## Run CytoTalk<br />
 
 
 
