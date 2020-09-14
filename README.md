@@ -1,5 +1,6 @@
 # CytoTalk<br />
 ### Version 1.2 (April 15th, 2020)<br />
+<br />
 
 * ## Overview<br />
 Cell-cell communication in a tissue microenvironment is mediated by signal transduction pathways. Single-cell technology has opened the door for studying signal transduction at much higher resolution in a complex tissue. Currently, there is a lack of analytical methods to infer signaling pathways based on single-cell omics data. Here we introduce a computational method, **CytoTalk**, for _de novo_ construction of **cell type-specific signaling networks** using single-cell transcriptomics data. Using an integrated intracellular and intercellular gene network as the input, CytoTalk identifies candidate pathways using prize-collecting Steiner forest (PCSF) algorithm. CytoTalk is implemented using MATLAB (version >= R2018a), R (version >= 3.5.0) and Python (version >= 3.7.0).
@@ -7,9 +8,7 @@ Cell-cell communication in a tissue microenvironment is mediated by signal trans
 <br />
 
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
-
-
-
+<br />
 
 * ## Prepare input files<br />
 1. CytoTalk requires a comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the log2-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells.<br />
@@ -27,7 +26,6 @@ Cell-cell communication in a tissue microenvironment is mediated by signal trans
 >>>(2) The /CytoTalk/ folder can only be used **once** for predicting the signaling network between cell type A and cell type B. Please make sure the gene expression data of your interested cell type pair are stored in “scRNAseq_CellTypeA.csv” and “scRNAseq_CellTypeB.csv”. Examples are in the /ExampleInput/ folder.
 
 2. CytoTalk also requires a **“Species.txt"** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported. An example is in the folder /ExampleInput/ folder. This file should be also copied into the /CytoTalk/ folder.
-<br />
 <br />
 
 * ## Install required R and Python packages and set system environment variables<br />
@@ -81,8 +79,7 @@ pip3 install DateTime #Bash
 ```Bash
 export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH #Bash
 ```
-
-
+<br />
 
 * ## Run CytoTalk<br />
 
