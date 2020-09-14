@@ -116,6 +116,5 @@ Hu, Y., Peng, T., Gao, L., & Tan, K. (2020). CytoTalk: _De novo_ construction of
 
 ## Contact:
 Kai Tan, tank1@email.chop.edu<br />
-Yuxuan Hu, yuxuan_hu_xd@163.com<br />
 
 
