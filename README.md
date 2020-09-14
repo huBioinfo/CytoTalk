@@ -14,13 +14,13 @@ Cell-cell communication in a tissue microenvironment is mediated by signal trans
 * ## Prepare input files<br />
 1. CytoTalk requires a comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the log2-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells.<br />
 
->>The files should be named as:<br />
->>**“scRNAseq_CellTypeA.csv”<br />
->>“scRNAseq_CellTypeB.csv”<br />
->>“scRNAseq_CellTypeC.csv”<br />
->>“scRNAseq_CellTypeD.csv”<br />
->>“scRNAseq_CellTypeE.csv”<br />
->>…<br />**
+>The files should be named as:<br />
+>**“scRNAseq_CellTypeA.csv”<br />
+>“scRNAseq_CellTypeB.csv”<br />
+>“scRNAseq_CellTypeC.csv”<br />
+>“scRNAseq_CellTypeD.csv”<br />
+>“scRNAseq_CellTypeE.csv”<br />
+>…<br />**
 >>Tips:
 >>>(1) Csv files for all cell types should be copied into the /CytoTalk/ folder since all of them are needed for computing cell-type-specificity of gene expression in the CytoTalk algorithm.
 
