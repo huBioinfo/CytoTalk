@@ -29,8 +29,7 @@ Cell-cell communication in a tissue microenvironment is mediated by signal trans
 2. CytoTalk also requires a **“Species.txt"** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported. An example is in the folder /ExampleInput/ folder. This file should be also copied into the /CytoTalk/ folder.
 <br />
 <br />
-<br />
-<br />
+
 * ## Install required R and Python packages and set system environment variables<br />
 1. The following four R packages should be installed (R version ≥ 3.5.0 is recommended). 
 
