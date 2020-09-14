@@ -27,10 +27,10 @@ Cell-cell communication in a tissue microenvironment is mediated by signal trans
 >>>(2) The /CytoTalk/ folder can only be used **once** for predicting the signaling network between cell type A and cell type B. Please make sure the gene expression data of your interested cell type pair are stored in “scRNAseq_CellTypeA.csv” and “scRNAseq_CellTypeB.csv”. Examples are in the /ExampleInput/ folder.
 
 2. CytoTalk also requires a **“Species.txt"** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported. An example is in the folder /ExampleInput/ folder. This file should be also copied into the /CytoTalk/ folder.
-
-
-
-
+<br />
+<br />
+<br />
+<br />
 * ## Install required R and Python packages and set system environment variables<br />
 1. The following four R packages should be installed (R version ≥ 3.5.0 is recommended). 
 
