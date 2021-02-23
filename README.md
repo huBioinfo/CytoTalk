@@ -65,21 +65,16 @@ export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
  * Set system environment variable to include the absolute path of the executable MATLAB program. An example in the macOS system is as following:
 export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
 
-## Run CytoTalk<br />
+## III. Running CytoTalk
+
 Copy the input file-added “/CytoTalk/” folder to your working directory and execute the following two steps:
-```Bash
-bash CommunModule_TypATypB_Step1.sh #Bash
-```
->>Tip: This step may take up to 6 hours because computing mutual information for all gene pairs is time consuming.
 
 ```Bash
-bash CommunModule_TypATypB_Step2.sh #Bash
+bash InferSignalingNetwork.sh
 ```
-<br />
 
-## CytoTalk output
-The output folder, “/CytoTalk/IllustratePCSF/”, contains a network file **“PCSF_edgeSym.sif”** and the following six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between cell type A and cell type B.
-<br />
+## IV. CytoTalk output
+The output folder, “/CytoTalk/IllustratePCSF/”, contains a network file “PCSF_edgeSym.sif” and the following six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between cell type A and cell type B.
 
 >Two edge attribute files:
 
