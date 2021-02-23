@@ -81,7 +81,7 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
 
 | Network topology | Edge attribute | Node attribute |
 | :------ | :----- | :------ |
-| PCSF_edgeSym.sif | PCSF_edgeSym.sif<br>PCSF_edgeCost.txt| PCSF_geneCellType.txt，PCSF_geneExp.txt<br>PCSF_genePrize.txt，PCSF_geneRealName.txt |
+| PCSF_edgeSym.sif | PCSF_edgeCellType.txt<br>PCSF_edgeCost.txt| PCSF_geneCellType.txt，PCSF_geneExp.txt<br>PCSF_genePrize.txt，PCSF_geneRealName.txt |
 
    
      
