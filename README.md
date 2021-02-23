@@ -72,7 +72,7 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 Copy the **input file-added “/CytoTalk/”** folder to your working directory and execute the following script:
 
 ```Bash
-bash InferSignalingNetwork.sh
+    bash InferSignalingNetwork.sh
 ```
 
 ## CytoTalk output  
@@ -93,7 +93,7 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
 
 * Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell transcriptomics data. *Science Advances* (2021). Accepted.
 
-## Cite CytoTalk  
+## Reference  
 
 * Shannon P, et al. Cytoscape: a software environment for integrated models of biomolecular interaction networks. *Genome Research* 13, 2498-2504 (2003).
 
