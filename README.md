@@ -13,7 +13,7 @@ We have developed the CytoTalk algorithm for de novo construction of a signaling
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
 <br />
 
-## I. Required R and Python packages and system environment variables   
+## I. Packages and Environment configurations      
 
  * The following four **R** packages should be installed (R version  3.5.0 is recommended). 
 
