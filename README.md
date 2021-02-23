@@ -1,5 +1,5 @@
-# CytoTalk<br />
-### Version 1.2 (April 15th, 2020)<br />
+# CytoTalk  
+### Version 2.0 (February 22nd, 2021) 
 <br />
 
 ## Overview<br />
