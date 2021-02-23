@@ -35,18 +35,18 @@ Version 2.0 (February 22nd, 2021)
 
  * The following four R packages should be installed (R version  3.5.0 is recommended). 
 
-  - “entropy”: https://cran.r-project.org/web/packages/entropy/index.html
+    - “entropy”: https://cran.r-project.org/web/packages/entropy/index.html
 
-  - “infotheo”: https://cran.r-project.org/web/packages/infotheo/index.html
+    - “infotheo”: https://cran.r-project.org/web/packages/infotheo/index.html
 
-  - “doParallel”: https://cran.r-project.org/web/packages/doParallel/index.html
+    - “doParallel”: https://cran.r-project.org/web/packages/doParallel/index.html
 
 This package is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available in Line 13 of the R scripts:
 “comp_MIcoexp_TypA_WinPara.R” &
 “comp_MIcoexp_TypB_WinPara.R”. 
 The default is 14 logical cores. 
 
-  - “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
+    - “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
 
 This package is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following: 
 export OMP_NUM_THREADS=n, where n is the number of logical cores available.
