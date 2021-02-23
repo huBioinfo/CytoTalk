@@ -7,7 +7,7 @@ Version 2.0 (February 22nd, 2021)
 
 Signal transduction is the primary mechanism for cell-cell communication. scRNA-Seq technology holds great promise for studying cell-cell communication at much higher resolution. Signaling pathways are highly dynamic and cross-talk among them is prevalent. Due to these two features, simply examining expression levels of ligand and receptor genes cannot reliably capture the overall activities of signaling pathways and interactions among them. 
 
-We have developed the CytoTalk algorithm for de novo construction of a signaling network (union of multiple signaling pathways emanating from the ligand-receptor pairs) between two cell types using single-cell transcriptomics data. The algorithm first constructs an integrated network consisting of intracellular and intercellular functional gene interactions. It then identifies the signaling network by solving a prize-collecting Steiner forest (PCSF) problem based on appropriately defined node prize (i.e. cell-specific gene activity) and edge cost (i.e. probability of functional interaction between two genes). The objective of the PCSF problem is to find an optimal subnetwork in the integrated network that includes genes with high levels of cell-type-specific expression and close connection to highly active ligand-receptor pairs. CytoTalk is currently implemented using a combination of MATLAB (version  R2018a), R (version  3.5.0) and Python (version  3.7.0). 
+We have developed the CytoTalk algorithm for *de novo* construction of a signaling network (union of multiple signaling pathways emanating from the ligand-receptor pairs) between two cell types using single-cell transcriptomics data. The algorithm first constructs an integrated network consisting of intracellular and intercellular functional gene interactions. It then identifies the signaling network by solving a prize-collecting Steiner forest (PCSF) problem based on appropriately defined node prize (i.e. cell-specific gene activity) and edge cost (i.e. probability of functional interaction between two genes). The objective of the PCSF problem is to find an optimal subnetwork in the integrated network that includes **genes with high levels of cell-type-specific expression and close connection to highly active ligand-receptor pairs**. CytoTalk is currently implemented using a combination of MATLAB (version  R2018a), R (version  3.5.0) and Python (version  3.7.0). 
 
 
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
@@ -25,10 +25,13 @@ We have developed the CytoTalk algorithm for de novo construction of a signaling
 
     - “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
 
-    "doParallel" is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available in **Line 13** of the R scripts: **comp_MIcoexp_TypA_WinPara.R** and **comp_MIcoexp_TypB_WinPara.R**. (The default is 14 logical cores.)
+    "doParallel" is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available (default=14) in **Line 13** of the R scripts: **comp_MIcoexp_TypA_WinPara.R** and **comp_MIcoexp_TypB_WinPara.R**.
 
-    "parmigene" is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following: 
-export OMP_NUM_THREADS=n, where n is the number of logical cores available.
+    "parmigene" is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following. n is the number of logical cores available.
+  
+    ```Bash
+        export OMP_NUM_THREADS=n
+    ```
 
  * The following three **Python** package should be installed (Python version  3.7.0 is recommended).
 
@@ -38,7 +41,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
     - “datetime”: https://pypi.org/project/DateTime/
  
-    "pcsf_fast" is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
+    "pcsf_fast" is used for fast identification of a rooted prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
   
     ```Bash
         export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
@@ -52,7 +55,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
 ## Input files   
 
-* A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
+* A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
 * A **“TwoCellTypes.txt”** file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
 
@@ -66,7 +69,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
 ## Run CytoTalk  
 
-Copy the input file-added “/CytoTalk/” folder to your working directory and execute the following two steps:
+Copy the **input file-added “/CytoTalk/”** folder to your working directory and execute the following script:
 
 ```Bash
 bash InferSignalingNetwork.sh
@@ -84,11 +87,11 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
      
 ## Cite CytoTalk  
 
-* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo construction of signal transduction networks using single-cell RNA-Seq data*. 2020. bioRxiv.  
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell RNA-Seq data. 2020. bioRxiv.  
  
     https://www.biorxiv.org/content/10.1101/2020.03.29.014464v1
 
-* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo construction of signal transduction networks using single-cell transcriptomics data*. 2021. Science Advances. Accepted.
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell transcriptomics data. 2021. Science Advances. Accepted.
 
 ## Contact  
 
