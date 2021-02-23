@@ -51,6 +51,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
     ```
 
 ## II. Input files 
+
 * A comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the ln-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
 * A “TwoCellTypes.txt” file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
@@ -82,9 +83,13 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
    
      
 ## Cite CytoTalk:
-Hu, Y., Peng, T., Gao, L., & Tan, K. (2020). CytoTalk: _De novo_ construction of signal transduction networks using single-cell RNA-Seq data. _bioRxiv_.<br />
+
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo construction of signal transduction networks using single-cell RNA-Seq data*. 2020. bioRxiv.
+
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo construction of signal transduction networks using single-cell transcriptomics data*. 2021. Science Advances. Accepted.
 
 ## Contact:
+
 Kai Tan, tank1@email.chop.edu<br />
 
 
