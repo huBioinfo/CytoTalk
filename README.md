@@ -15,7 +15,7 @@ We have developed the CytoTalk algorithm for de novo construction of a signaling
 
 ## I. Required R and Python packages and system environment variables 
 
- * The following four R packages should be installed (R version  3.5.0 is recommended). 
+ * The following four **R** packages should be installed (R version  3.5.0 is recommended). 
 
     - “entropy”: https://cran.r-project.org/web/packages/entropy/index.html
 
@@ -30,7 +30,7 @@ We have developed the CytoTalk algorithm for de novo construction of a signaling
     "parmigene" is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following: 
 export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
- * The following three Python package should be installed (Python version  3.7.0 is recommended).
+ * The following three **Python** package should be installed (Python version  3.7.0 is recommended).
 
     - “pcsf_fast”: https://github.com/fraenkel-lab/pcst_fast
 
@@ -44,7 +44,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
         export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
     ```
   
- * Set system environment variable to include the absolute path of the executable MATLAB program. An example in the macOS system is as following:
+ * Set system environment variable to include the absolute path of the executable **MATLAB** program. An example in the macOS system is as following:
 
     ```Bash
         export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
@@ -52,15 +52,15 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
 ## II. Input files 
 
-* A comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the ln-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
+* A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
-* A “TwoCellTypes.txt” file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
+* A **“TwoCellTypes.txt”** file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
 
-* A “Species.txt” file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported.
+* A **“Species.txt”** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported.
 
-* A “Cutoff_GeneFilter.txt” file indicating the cutoff for removing lowly-expressed genes in the processing of scRNA-Seq data. The default cutoff value is 0.1, which means that genes expressed in less than 10% of all cells of a given type are removed.
+* A **“Cutoff_GeneFilter.txt”** file indicating the cutoff for removing lowly-expressed genes in the processing of scRNA-Seq data. The default cutoff value is 0.1, which means that genes expressed in less than 10% of all cells of a given type are removed.
 
-* A “BetaUpperLimit.txt” file indicating the upper limit of the test values of the algorithm parameter β, which is inversely proportional to the total number of genes in a given cell-type pair after removing lowly-expressed genes in the processing of scRNA-Seq data. Based on preliminary tests, the upper limit of β value is suggested to be 100 (default) if the total number of genes in a given cell-type pair is above 10,000. However, if the total number of genes is below 5000, it is necessary to increase the upper limit of β value to 500.
+* A **“BetaUpperLimit.txt”** file indicating the upper limit of the test values of the algorithm parameter β, which is inversely proportional to the total number of genes in a given cell-type pair after removing lowly-expressed genes in the processing of scRNA-Seq data. Based on preliminary tests, the upper limit of β value is suggested to be 100 (default) if the total number of genes in a given cell-type pair is above 10,000. However, if the total number of genes is below 5000, it is necessary to increase the upper limit of β value to 500.
 
 ⚠ Note that all example input files are in the /Input/ folder and should be customized and copied into the /CytoTalk/ folder before running. The /CytoTalk/ folder can only be used ONCE for a given cell-type pair. Please use a new /CytoTalk/ folder for analysis of other cell-type pairs.
 
