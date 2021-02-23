@@ -74,20 +74,13 @@ bash InferSignalingNetwork.sh
 ```
 
 ## IV. CytoTalk output
-The output folder, “/CytoTalk/IllustratePCSF/”, contains a network file “PCSF_edgeSym.sif” and the following six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between cell type A and cell type B.
 
->Two edge attribute files:
+The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology file and six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between the two given cell types.
 
->**(1) “PCSF_edgeCellType.txt”<br />
->(2) “PCSF_edgeCost.txt”<br />**
+| Network topology | Edge attribute | Node attribute |
+| ------ | ------ | ------ |
+| PCSF_edgeSym.sif | PCSF_edgeSym.sif，PCSF_edgeCost.txt| PCSF_geneCellType.txt，PCSF_geneExp.txt，PCSF_genePrize.txt，PCSF_geneRealName.txt |
 
->Four node attribute files:
-
->**(1) “PCSF_geneCellType.txt”<br />
->(2) “PCSF_geneExp.txt”<br />
->(3) “PCSF_genePrize.txt”<br />
->(4) “PCSF_geneRealName.txt”<br />**
-<br />
 
 ## Cite CytoTalk:
 Hu, Y., Peng, T., Gao, L., & Tan, K. (2020). CytoTalk: _De novo_ construction of signal transduction networks using single-cell RNA-Seq data. _bioRxiv_.<br />
