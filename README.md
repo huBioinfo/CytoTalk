@@ -5,9 +5,10 @@ Version 2.0 (February 22nd, 2021)
 
 ## Overview
 
-Cell-cell communication in a tissue microenvironment is mediated by signal transduction pathways. Single-cell technology has opened the door for studying signal transduction at much higher resolution in a complex tissue. Currently, there is a lack of analytical methods to infer signaling pathways based on single-cell omics data. Here we introduce a computational method, **CytoTalk**, for _de novo_ construction of **cell type-specific signaling networks** using single-cell transcriptomics data. Using an integrated intracellular and intercellular gene network as the input, CytoTalk identifies candidate pathways using prize-collecting Steiner forest (PCSF) algorithm. CytoTalk is implemented using MATLAB (version >= R2018a), R (version >= 3.5.0) and Python (version >= 3.7.0).
+* Signal transduction is the primary mechanism for cell-cell communication. scRNA-Seq technology holds great promise for studying cell-cell communication at much higher resolution. Signaling pathways are highly dynamic and cross-talk among them is prevalent. Due to these two features, simply examining expression levels of ligand and receptor genes cannot reliably capture the overall activities of signaling pathways and interactions among them. 
 
-<br />
+* We have developed the CytoTalk algorithm for de novo construction of a signaling network (union of multiple signaling pathways emanating from the ligand-receptor pairs) between two cell types using single-cell transcriptomics data. The algorithm first constructs an integrated network consisting of intracellular and intercellular functional gene interactions. It then identifies the signaling network by solving a prize-collecting Steiner forest (PCSF) problem based on appropriately defined node prize (i.e. cell-specific gene activity) and edge cost (i.e. probability of functional interaction between two genes). The objective of the PCSF problem is to find an optimal subnetwork in the integrated network that includes genes with high levels of cell-type-specific expression and close connection to highly active ligand-receptor pairs. CytoTalk is currently implemented using a combination of MATLAB (version  R2018a), R (version  3.5.0) and Python (version  3.7.0). 
+
 
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
 <br />
