@@ -63,7 +63,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
 ⚠ Note that all example input files are in the /Input/ folder and should be customized and copied into the /CytoTalk/ folder before running. The /CytoTalk/ folder can only be used ONCE for a given cell-type pair. Please use a new /CytoTalk/ folder for analysis of other cell-type pairs.
 
-## III. Running CytoTalk
+## III. Run CytoTalk
 
 Copy the input file-added “/CytoTalk/” folder to your working directory and execute the following two steps:
 
