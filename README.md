@@ -25,9 +25,9 @@ Version 2.0 (February 22nd, 2021)
 
     - “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
 
-"doParallel" is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available in **Line 13** of the R scripts: **comp_MIcoexp_TypA_WinPara.R** and **comp_MIcoexp_TypB_WinPara.R**. (The default is 14 logical cores.)
+&nbsp；&nbsp；&nbsp；&nbsp；"doParallel" is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available in **Line 13** of the R scripts: **comp_MIcoexp_TypA_WinPara.R** and **comp_MIcoexp_TypB_WinPara.R**. (The default is 14 logical cores.)
 
-"parmigene" is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following: 
+&nbsp；&nbsp；&nbsp；&nbsp；"parmigene" is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following: 
 export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
  * The following three Python package should be installed (Python version  3.7.0 is recommended).
@@ -38,7 +38,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
     - “datetime”: https://pypi.org/project/DateTime/
  
-"pcsf_fast" is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
+&nbsp；&nbsp；&nbsp；&nbsp；"pcsf_fast" is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
   
 ```Bash
 export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
