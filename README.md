@@ -72,7 +72,7 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 Copy the **input file-added “/CytoTalk/”** folder to your working directory and execute the following script:
 
 ```Bash
-    bash InferSignalingNetwork.sh
+bash InferSignalingNetwork.sh
 ```
 
 ## CytoTalk output  
