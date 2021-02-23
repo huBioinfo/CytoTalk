@@ -81,7 +81,8 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
 | ------ | ------ | ------ |
 | PCSF_edgeSym.sif | PCSF_edgeSym.sif，PCSF_edgeCost.txt| PCSF_geneCellType.txt，PCSF_geneExp.txt，PCSF_genePrize.txt，PCSF_geneRealName.txt |
 
-
+   
+     
 ## Cite CytoTalk:
 Hu, Y., Peng, T., Gao, L., & Tan, K. (2020). CytoTalk: _De novo_ construction of signal transduction networks using single-cell RNA-Seq data. _bioRxiv_.<br />
 
