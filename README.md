@@ -5,9 +5,9 @@ Version 2.0 (February 22nd, 2021)
 
 ## Overview
 
-* Signal transduction is the primary mechanism for cell-cell communication. scRNA-Seq technology holds great promise for studying cell-cell communication at much higher resolution. Signaling pathways are highly dynamic and cross-talk among them is prevalent. Due to these two features, simply examining expression levels of ligand and receptor genes cannot reliably capture the overall activities of signaling pathways and interactions among them. 
+Signal transduction is the primary mechanism for cell-cell communication. scRNA-Seq technology holds great promise for studying cell-cell communication at much higher resolution. Signaling pathways are highly dynamic and cross-talk among them is prevalent. Due to these two features, simply examining expression levels of ligand and receptor genes cannot reliably capture the overall activities of signaling pathways and interactions among them. 
 
-* We have developed the CytoTalk algorithm for de novo construction of a signaling network (union of multiple signaling pathways emanating from the ligand-receptor pairs) between two cell types using single-cell transcriptomics data. The algorithm first constructs an integrated network consisting of intracellular and intercellular functional gene interactions. It then identifies the signaling network by solving a prize-collecting Steiner forest (PCSF) problem based on appropriately defined node prize (i.e. cell-specific gene activity) and edge cost (i.e. probability of functional interaction between two genes). The objective of the PCSF problem is to find an optimal subnetwork in the integrated network that includes genes with high levels of cell-type-specific expression and close connection to highly active ligand-receptor pairs. CytoTalk is currently implemented using a combination of MATLAB (version  R2018a), R (version  3.5.0) and Python (version  3.7.0). 
+We have developed the CytoTalk algorithm for de novo construction of a signaling network (union of multiple signaling pathways emanating from the ligand-receptor pairs) between two cell types using single-cell transcriptomics data. The algorithm first constructs an integrated network consisting of intracellular and intercellular functional gene interactions. It then identifies the signaling network by solving a prize-collecting Steiner forest (PCSF) problem based on appropriately defined node prize (i.e. cell-specific gene activity) and edge cost (i.e. probability of functional interaction between two genes). The objective of the PCSF problem is to find an optimal subnetwork in the integrated network that includes genes with high levels of cell-type-specific expression and close connection to highly active ligand-receptor pairs. CytoTalk is currently implemented using a combination of MATLAB (version  R2018a), R (version  3.5.0) and Python (version  3.7.0). 
 
 
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
@@ -40,18 +40,18 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
  
     "pcsf_fast" is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
   
-```Bash
-export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
-```
+    ```Bash
+        export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
+    ```
   
  * Set system environment variable to include the absolute path of the executable MATLAB program. An example in the macOS system is as following:
 
-```Bash
-export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
-```
+    ```Bash
+        export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
+    ```
 
 ## II. Input files 
-* A comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the ln-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**,**scRNAseq_Macrophages.csv**,**scRNAseq_EndothelialCells.csv**,**scRNAseq_CellTypeName.csv**…
+* A comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the ln-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
 * A “TwoCellTypes.txt” file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
 
