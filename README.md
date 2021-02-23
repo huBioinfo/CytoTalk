@@ -76,7 +76,7 @@ bash InferSignalingNetwork.sh
 The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology file and six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between the two given cell types.
 
 | Network topology | Edge attribute | Node attribute |
-| ------ | ------ | :------ |
+| :------ | :------ | :------ |
 | PCSF_edgeSym.sif | PCSF_edgeSym.sif，PCSF_edgeCost.txt| PCSF_geneCellType.txt，PCSF_geneExp.txt，PCSF_genePrize.txt，PCSF_geneRealName.txt |
 
    
