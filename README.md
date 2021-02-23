@@ -13,24 +13,23 @@ Version 2.0 (February 22nd, 2021)
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
 <br />
 
-## Prepare input files<br />
-1. CytoTalk requires a comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the log2-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells.<br />
+## I. Input files 
+(1) A comma-delimited “.csv” file containing scRNA-Seq data for each cell type under study. Each file contains the ln-transformed normalized scRNA-Seq data for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:
+“scRNAseq_Fibroblasts.csv”
+“scRNAseq_Macrophages.csv”
+“scRNAseq_EndothelialCells.csv”
+“scRNAseq_CellTypeName.csv”
+…
 
->The files should be named as:<br />
->**“scRNAseq_CellTypeA.csv”<br />
->“scRNAseq_CellTypeB.csv”<br />
->“scRNAseq_CellTypeC.csv”<br />
->“scRNAseq_CellTypeD.csv”<br />
->“scRNAseq_CellTypeE.csv”<br />
->…<br />**
->>Tips:
->>>(1) Csv files for all cell types should be copied into the /CytoTalk/ folder since all of them are needed for computing cell-type-specificity of gene expression in the CytoTalk algorithm.
+(2) A “TwoCellTypes.txt” file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
 
->>>(2) The /CytoTalk/ folder can only be used **once** for predicting the signaling network between cell type A and cell type B. Please make sure the gene expression data of your interested cell type pair are stored in “scRNAseq_CellTypeA.csv” and “scRNAseq_CellTypeB.csv”. Examples are in the /ExampleInput/ folder.
+(3) A “Species.txt” file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported.
 
-2. CytoTalk also requires a **“Species.txt"** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported. An example is in the folder /ExampleInput/ folder. This file should be also copied into the /CytoTalk/ folder.
-<br />
+(4) A “Cutoff_GeneFilter.txt” file indicating the cutoff for removing lowly-expressed genes in the processing of scRNA-Seq data. The default cutoff value is 0.1, which means that genes expressed in less than 10% of all cells of a given type are removed.
 
+(5) A “BetaUpperLimit.txt” file indicating the upper limit of the test values of the algorithm parameter β, which is inversely proportional to the total number of genes in a given cell-type pair after removing lowly-expressed genes in the processing of scRNA-Seq data. Based on preliminary tests, the upper limit of β value is suggested to be 100 (default) if the total number of genes in a given cell-type pair is above 10,000. However, if the total number of genes is below 5000, it is necessary to increase the upper limit of β value to 500.
+
+!!!Note that all example input files are in the /Input/ folder and should be customized and copied into the /CytoTalk/ folder before running. The /CytoTalk/ folder can only be used ONCE for a given cell-type pair. Please use a new /CytoTalk/ folder for analysis of other cell-type pairs.
 ## Install required R and Python packages and set system environment variables<br />
 1. The following four R packages should be installed (R version ≥ 3.5.0 is recommended). 
 
