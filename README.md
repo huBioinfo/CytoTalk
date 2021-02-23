@@ -87,11 +87,15 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
      
 ## Cite CytoTalk  
 
-* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell RNA-Seq data. 2020. bioRxiv.  
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell RNA-Seq data. *bioRxiv* (2020).
  
     https://www.biorxiv.org/content/10.1101/2020.03.29.014464v1
 
-* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell transcriptomics data. 2021. Science Advances. Accepted.
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell transcriptomics data. *Science Advances* (2021). Accepted.
+
+## Cite CytoTalk  
+
+* Shannon P, et al. Cytoscape: a software environment for integrated models of biomolecular interaction networks. *Genome Research* 13, 2498-2504 (2003).
 
 ## Contact  
 
