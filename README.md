@@ -55,7 +55,7 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 
 ## Input files   
 
-* A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
+* A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. The files should be named as: **scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
 * A **“TwoCellTypes.txt”** file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
 
