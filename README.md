@@ -41,28 +41,28 @@ Version 2.0 (February 22nd, 2021)
 
     - “doParallel”: https://cran.r-project.org/web/packages/doParallel/index.html
 
-This package is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available in Line 13 of the R scripts:
+    - “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
+
+This package is used for parallel computation of mutual information for all gene pairs. Before running CytoTalk, set the number of logical cores available in **Line 13** of the R scripts:
 “comp_MIcoexp_TypA_WinPara.R” &
 “comp_MIcoexp_TypB_WinPara.R”. 
 The default is 14 logical cores. 
 
-    - “parmigene”: https://cran.rstudio.com/web/packages/parmigene/index.html
-
 This package is used for parallel computation of indirect edge-filtered gene networks. Before running CytoTalk, set system environment variable as following: 
 export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
-2. The following three Python package should be installed (Python version  3.7.0 is recommended).
+ * The following three Python package should be installed (Python version  3.7.0 is recommended).
 
-1) “pcsf_fast”: https://github.com/fraenkel-lab/pcst_fast
+    - “pcsf_fast”: https://github.com/fraenkel-lab/pcst_fast
 
 This package is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
 export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
 
-2) “numpy”: https://numpy.org/install/
+    - “numpy”: https://numpy.org/install/
 
-3) “datetime”: https://pypi.org/project/DateTime/
+    - “datetime”: https://pypi.org/project/DateTime/
 
-3. Set system environment variable to include the absolute path of the executable MATLAB program. An example in the macOS system is as following:
+ * Set system environment variable to include the absolute path of the executable MATLAB program. An example in the macOS system is as following:
 export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
 
 ## Run CytoTalk<br />
