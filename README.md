@@ -13,7 +13,7 @@ We have developed the CytoTalk algorithm for de novo construction of a signaling
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
 <br />
 
-## I. Packages and Environment configurations      
+## Packages and Environment configurations      
 
  * The following four **R** packages should be installed (R version  3.5.0 is recommended). 
 
@@ -50,7 +50,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
         export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
     ```
 
-## II. Input files   
+## Input files   
 
 * A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. Examples are in the /Input/ folder. The files should be named as:**scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
@@ -64,7 +64,7 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
 ⚠ Note that all example input files are in the /Input/ folder and should be customized and copied into the /CytoTalk/ folder before running. The /CytoTalk/ folder can only be used ONCE for a given cell-type pair. Please use a new /CytoTalk/ folder for analysis of other cell-type pairs.
 
-## III. Run CytoTalk  
+## Run CytoTalk  
 
 Copy the input file-added “/CytoTalk/” folder to your working directory and execute the following two steps:
 
@@ -72,7 +72,7 @@ Copy the input file-added “/CytoTalk/” folder to your working directory and 
 bash InferSignalingNetwork.sh
 ```
 
-## IV. CytoTalk output  
+## CytoTalk output  
 
 The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology file and six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between the two given cell types.
 
