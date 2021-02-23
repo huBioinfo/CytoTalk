@@ -82,13 +82,14 @@ The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology 
 
    
      
-## Cite CytoTalk:
+## Cite CytoTalk
 
 * Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo construction of signal transduction networks using single-cell RNA-Seq data*. 2020. bioRxiv.
+    https://www.biorxiv.org/content/10.1101/2020.03.29.014464v1
 
 * Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo construction of signal transduction networks using single-cell transcriptomics data*. 2021. Science Advances. Accepted.
 
-## Contact:
+## Contact
 
 Kai Tan, tank1@email.chop.edu<br />
 
