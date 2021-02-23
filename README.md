@@ -55,12 +55,12 @@ export OMP_NUM_THREADS=n, where n is the number of logical cores available.
 
     - “pcsf_fast”: https://github.com/fraenkel-lab/pcst_fast
 
-This package is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
-export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
-
     - “numpy”: https://numpy.org/install/
 
     - “datetime”: https://pypi.org/project/DateTime/
+ 
+This package is used for fast identification of a rooted Prize-collecting Steiner tree in a network. Before running CytoTalk, set the system environment variable as following: 
+export PYTHONPATH=$PYTHONPATH:/your installed pcsf_fast folder/
 
  * Set system environment variable to include the absolute path of the executable MATLAB program. An example in the macOS system is as following:
 export PATH=/Applications/MATLAB_R2018a.app/bin/:$PATH
