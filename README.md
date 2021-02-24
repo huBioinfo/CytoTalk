@@ -57,9 +57,9 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 
 * A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. The files should be named as: **scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
-* A **“LigandReceptor_Human.txt” or "LigandReceptor_Mouse.txt"** file listing all known ligand-receptor pairs. The first column (ligand) and the second column (receptor) are separated by a tab (\t). Currently, 1942 and 1855 ligand-receptor pairs are provided for human and mouse, respectively.
-
 * A **“TwoCellTypes.txt”** file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
+
+* A **“LigandReceptor_Human.txt” or "LigandReceptor_Mouse.txt"** file listing all known ligand-receptor pairs. The first column (ligand) and the second column (receptor) are separated by a tab (\t). Currently, 1942 and 1855 ligand-receptor pairs are provided for human and mouse, respectively.
 
 * A **“Species.txt”** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported.
 
@@ -67,7 +67,7 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 
 * A **“BetaUpperLimit.txt”** file indicating the upper limit of the test values of the algorithm parameter β, which is inversely proportional to the total number of genes in a given cell-type pair after removing lowly-expressed genes in the processing of scRNA-Seq data. Based on preliminary tests, the upper limit of β value is suggested to be 100 (default) if the total number of genes in a given cell-type pair is above 10,000. However, if the total number of genes is below 5000, it is necessary to increase the upper limit of β value to 500.
 
-⚠ Note that all example input files are in the /Input/ folder and should be customized and copied into the /CytoTalk/ folder before running. The /CytoTalk/ folder can only be used ONCE for a given cell-type pair. Please use a new /CytoTalk/ folder for analysis of other cell-type pairs.
+⚠ Note that all example input files are in the /Input/ folder and should be customized and copied into the /CytoTalk/ folder before running. The /CytoTalk/ folder can only be used **ONCE** for a given cell-type pair. Please use a new /CytoTalk/ folder for analysis of other cell-type pairs.
 
 ## Run CytoTalk  
 
