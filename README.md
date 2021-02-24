@@ -75,6 +75,16 @@ Copy the **input file-added “/CytoTalk/”** folder to your working directory 
 bash InferSignalingNetwork.sh
 ```
 
+The whole computation above may take 5.5 hours, of which 4 hours are used for computing pair-wise mutual information between genes in the construction of intracellular networks for the given two cell types. Considering that users may have alternative ways for constructing cell-type-specific intracellular networks, we divide the whole computation into two steps below.
+
+```Bash
+bash InferIntracellularNetwork_part1.sh
+```
+
+```Bash
+bash InferIntercellularNetwork_part2.sh
+```
+
 ## CytoTalk output  
 
 The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology file and six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between the two given cell types.
