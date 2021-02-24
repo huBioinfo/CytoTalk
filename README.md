@@ -91,7 +91,7 @@ The outputs of the script "part1.sh" are two comma-delimited files "Intracellula
 
 ## CytoTalk output  
 
-The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology file and six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between the two given cell types.
+The output folder, “/CytoTalk/IllustratePCSF/”, contains a network topology file and six attribute files that are ready for import into Cytoscape for visualization and further analysis of the predicted signaling network between the given two cell types.
 
 | Network topology | Edge attribute | Node attribute |
 | :------ | :----- | :------ |
