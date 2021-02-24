@@ -75,7 +75,7 @@ Copy the **input file-added “/CytoTalk/”** folder to your working directory 
 bash InferSignalingNetwork.sh
 ```
 
-**[Alternative way]** The whole computation above may take 5.5 hours, of which 4 hours are used for computing pair-wise mutual information between genes in the construction of intracellular networks for the given two cell types. Considering that users may have alternative ways for constructing cell-type-specific intracellular networks, we divide the whole computation into two steps below.
+**[Alternative way]** The whole computation above may take 5.5 hours (2.3 GHz 8-Core Intel Core i9, 14 logical cores for parallel computation), of which 4 hours are used for computing pair-wise mutual information between genes in the construction of intracellular networks for the given two cell types. Considering that users may have alternative ways for constructing cell-type-specific intracellular networks, we divide the whole computation into two steps below.
 
 ```Bash
 bash InferIntracellularNetwork_part1.sh  # around 4 hours
