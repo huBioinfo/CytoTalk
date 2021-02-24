@@ -57,6 +57,8 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 
 * A **comma-delimited “.csv”** file containing scRNA-Seq data for **each cell type** under study. Each file contains the **ln-transformed normalized scRNA-Seq data** for a cell type with rows as genes (GENE SYMBOL) and columns as cells. The files should be named as: **scRNAseq_Fibroblasts.csv**, **scRNAseq_Macrophages.csv**, **scRNAseq_EndothelialCells.csv**, **scRNAseq_CellTypeName.csv** …
 
+* A **“LigandReceptor_Human.txt” or "LigandReceptor_Mouse.txt"** file listing all known ligand-receptor pairs. The first column (ligand) and the second column (receptor) are separated by a tab (/t). Currently, 1942 and 1855 ligand-receptor pairs are provided for human and mouse, respectively.
+
 * A **“TwoCellTypes.txt”** file indicating the two cell types between which the signaling network is predicted. Please make sure that the cell type names should be consistent with scRNA-Seq data files above.
 
 * A **“Species.txt”** file indicating the species from which the scRNA-Seq data are generated. Currently, “Human” and “Mouse” are supported.
