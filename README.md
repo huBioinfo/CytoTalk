@@ -1,6 +1,8 @@
 CytoTalk 
 ================
-**Version 3.0.1 (May 12th, 2021)**
+**Version 3.0.2 (May 19th, 2021)**
+
+Version 3.0.1 (May 12th, 2021)
 
 Version 2.0 (February 22nd, 2021) 
 
@@ -11,7 +13,11 @@ Signal transduction is the primary mechanism for cell-cell communication. scRNA-
 
 We have developed the CytoTalk algorithm for *de novo* construction of a signaling network (union of multiple signaling pathways emanating from the ligand-receptor pairs) between two cell types using single-cell transcriptomics data. The algorithm first constructs an integrated network consisting of intracellular and intercellular functional gene interactions. It then identifies the signaling network by solving a prize-collecting Steiner forest (PCSF) problem based on appropriately defined node prize (i.e. cell-specific gene activity) and edge cost (i.e. probability of functional interaction between two genes). The objective of the PCSF problem is to find an optimal subnetwork in the integrated network that includes **genes with high levels of cell-type-specific expression and close connection to highly active ligand-receptor pairs**. 
 
-⚠ **Major update: The latest release "CytoTalk_v3.0.1" is an R version, which is more easily and friendly to use!! Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.1) and refer to the user manual inside the latest package.** The content below is for the Matlab version "CytoTalk_v2.0". 
+⚠ **Update Log:** 
+
+**2021-05-19: The latest release "CytoTalk_v3.0.2" is a revised R version on the basis of v3.0.1. A bug has been fixed in this version to avoid running errors in some extreme cases. Final prediction results will be the same as v3.0.1. Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.2) and refer to the user manual inside the package.**
+
+2021-05-12: The release "CytoTalk_v3.0.1" is an R version, which is more easily and friendly to use!! Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.1) and refer to the user manual inside the package. The content below is for the Matlab version "CytoTalk_v2.0". 
 
 
 
