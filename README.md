@@ -1,6 +1,8 @@
 CytoTalk 
 ================
-**Version 3.0.2 (May 19th, 2021)**
+**Version 3.0.3 (May 31st, 2021)**
+
+Version 3.0.2 (May 19th, 2021)
 
 Version 3.0.1 (May 12th, 2021)
 
@@ -15,7 +17,9 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 
 ⚠ **Update Log:** 
 
-**2021-05-19: The latest release "CytoTalk_v3.0.2" is a revised R version on the basis of v3.0.1. A bug has been fixed in this version to avoid running errors in some extreme cases. Final prediction results will be the same as v3.0.1. Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.2) and refer to the user manual inside the package.**
+**2021-05-31: The latest release "CytoTalk_v3.0.3" is a revised R version on the basis of v3.0.2. A bug has been fixed in this version to avoid errors occurred in some special cases. We also provided a new example "RunCytoTalk_Example_StepByStep.R" to run the CytoTalk algorithm in a step-by-step fashion. Please download "CytoTalk_package_v3.0.3.zip" from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.3) and refer to the user manual inside the package.**
+
+2021-05-19: The release "CytoTalk_v3.0.2" is a revised R version on the basis of v3.0.1. A bug has been fixed in this version to avoid running errors in some extreme cases. Final prediction results will be the same as v3.0.1. Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.2) and refer to the user manual inside the package.
 
 2021-05-12: The release "CytoTalk_v3.0.1" is an R version, which is more easily and friendly to use!! Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.1) and refer to the user manual inside the package.
 
@@ -42,6 +46,6 @@ We have developed the CytoTalk algorithm for *de novo* construction of a signali
 
 ## Contact  
 
-Kai Tan, tank1@email.chop.edu<br />
+Kai Tan, tank1@chop.edu<br />
 
 
