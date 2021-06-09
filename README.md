@@ -27,6 +27,13 @@ We have developed the **CytoTalk algorithm for *de novo* construction of a signa
 
 2021-05-12: The release "CytoTalk_v3.0.1" is an R version, which is more easily and friendly to use!! Please download the package from the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.0.1) and refer to the user manual inside the package.
 
+⚠ **Important Usage Tips:** 
+
+**Gene expression matrix files for ALL cell types in the tissue or tumor microenvironment under study are required as inputs to the CytoTalk algorithm in order to compute cell-type-specificity of gene expression built in the algorithm.**
+
+
+
+
 
 
 <div align=center><img src="https://github.com/huBioinfo/CytoTalk/blob/master/CytoTalk_schematic.png" width="60%" height="60%" /></div>
