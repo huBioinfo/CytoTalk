@@ -45,7 +45,7 @@ We have developed the **CytoTalk algorithm for *de novo* construction of a signa
      
 ## Cite CytoTalk  
 
-* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell transcriptomic data. *Science Advances*, 2021, 7(16): eabf1356.
+* Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal transduction networks using single-cell transcriptomic data. ***Science Advances***, 2021, 7(16): eabf1356.
 
     https://advances.sciencemag.org/content/7/16/eabf1356
 
