@@ -1,14 +1,16 @@
 CytoTalk 
 ================
-**Version 3.1.0 (June 8th, 2021)**
+**R Version 3.1.0 (June 8th, 2021)**
 
-Version 3.0.3 (May 31st, 2021)
+R Version 3.0.3 (May 31st, 2021)
 
-Version 3.0.2 (May 19th, 2021)
+R Version 3.0.2 (May 19th, 2021)
 
-Version 3.0.1 (May 12th, 2021)
+R Version 3.0.1 (May 12th, 2021)
 
-Version 2.0 (February 22nd, 2021) 
+MATLAB Version 2.1 (see Releases page)
+
+MATLAB Version 2.0 (February 22nd, 2021) 
 
 
 ## Overview
@@ -31,7 +33,7 @@ We have developed the **CytoTalk algorithm for *de novo* construction of a signa
 
 ⚠ **Important Usage Tips:** 
 
-**Gene expression matrix files for ALL cell types in the tissue or tumor microenvironment under study are required as inputs to the CytoTalk algorithm in order to compute cell-type-specificity of gene expression built in the algorithm.**
+**Gene expression matrix files for ALL cell types in the tissue or tumor microenvironment under study are required as inputs to the CytoTalk algorithm in order to compute cell-type-specificity of gene expression built in the algorithm. Note that the row names of all these gene expression matrices should be exactly the same.**
 
 
 
