@@ -25,13 +25,13 @@ We have developed the **CytoTalk algorithm for *de novo* construction of a signa
 
 * **Please download "CytoTalk_package_v3.1.0.zip" from the Master branch or the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.1.0) and refer to the user manual inside the package.**
 
-* **Gene expression matrix files (named as scRNAseq_xxx.csv) for ALL cell types in the tissue or tumor microenvironment under study are required to REPLACE 7 example scRNAseq_BCells/EndothelialCells/TCells/xxx.csv in the Input/ folder, in order to compute cell-type-specificity of gene expression built in the CytoTalk algorithm. Please note that:**
+* **Gene expression matrix files (named as "scRNAseq_xxx.csv") for ALL cell types in the tissue or tumor microenvironment under study are required to REPLACE 7 example "scRNAseq_BCells/EndothelialCells/TCells/xxx.csv" in the Input/ folder, in order to compute cell-type-specificity of gene expression built in the CytoTalk algorithm. Please note that:**
 
     **(1) The row names of all these gene expression matrices should be exactly the same;**
 
     **(2) The gene expression values should be ln-transformed normalized scRNA-seq data (e.g. Seurat-preprocessed data);**
 
-    **(3) The Input/ folder should ONLY contain preprocessed scRNAseq_xxx.csv mentioned above and several existing .txt, .R and .py files, no other .csv files.**
+    **(3) The Input/ folder should ONLY contain preprocessed "scRNAseq_xxx.csv" mentioned above and several existing .txt, .R and .py files, no other .csv files.**
 <br />
 <br />
 
