@@ -25,21 +25,21 @@ We have developed the **CytoTalk algorithm for *de novo* construction of a signa
 <br />
 <br />
 
-⚠ **Important Usage Tips:** 
+⚠ **Important usage tips for the old version v3.1.0 (Please go to https://github.com/tanlabcode/CytoTalk for the latest CytoTalk_v4.0.0)**
 
-* **Please download "CytoTalk_package_v3.1.0.zip" from the Master branch or the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.1.0) and refer to the user manual inside the package.**
+* Download "CytoTalk_package_v3.1.0.zip" from the Master branch or the Releases page (https://github.com/huBioinfo/CytoTalk/releases/tag/v3.1.0) and refer to the user manual inside the package.
 
-* **Gene expression matrix files (named as "scRNAseq_xxx.csv") for ALL cell types in the tissue or tumor microenvironment under study are required to REPLACE 7 example "scRNAseq_BCells/EndothelialCells/TCells/xxx.csv" in the Input/ folder, in order to compute cell-type-specificity of gene expression built in the CytoTalk algorithm. Please note that:**
+* Gene expression matrix files (named as "scRNAseq_xxx.csv") for ALL cell types in the tissue or tumor microenvironment under study are required to REPLACE 7 example "scRNAseq_BCells/EndothelialCells/TCells/xxx.csv" in the Input/ folder, in order to compute cell-type-specificity of gene expression built in the CytoTalk algorithm. Please note that:
 
-    **(1) The row names of all these gene expression matrices should be exactly the same;**
+    (1) The row names of all these gene expression matrices should be exactly the same;
 
-    **(2) The gene expression values should be ln-transformed normalized scRNA-seq data (e.g. Seurat-preprocessed data);**
+    (2) The gene expression values should be ln-transformed normalized scRNA-seq data (e.g. Seurat-preprocessed data);
 
-    **(3) The Input/ folder should ONLY contain preprocessed "scRNAseq_xxx.csv" mentioned above and several existing .txt, .R and .py files, no other .csv files.**
+    (3) The Input/ folder should ONLY contain preprocessed "scRNAseq_xxx.csv" mentioned above and several existing .txt, .R and .py files, no other .csv files.
 <br />
 <br />
 
-⚠ **Update Log:** 
+⚠ **Update log** 
 
 **2021-10-07: The latest release “CytoTalk_v4.0.0” is a completely re-written R version of the program. Approximately half of the run time as been shaved off, the program is now cross-compatible with Windows and \*NIX systems, the file space usage is down to roughly a tenth of what it was, and graphical outputs have been made easier to import or now produce portable SVG files with embedded hyperlinks.**
 
