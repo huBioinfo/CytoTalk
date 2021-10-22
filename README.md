@@ -2,7 +2,7 @@ CytoTalk
 ================
 **R Version 4.0.0 (October 7th, 2021)**
 
-**Please refer to https://github.com/tanlabcode/CytoTalk for this latest release, which is a completely re-written R version of the program. Approximately half of the run time as been shaved off, the program is now cross-compatible with Windows and \*NIX systems, the file space usage is down to roughly a tenth of what it was, and graphical outputs have been made easier to import or now produce portable SVG files with embedded hyperlinks.**
+**Please refer to https://github.com/tanlabcode/CytoTalk for the latest release, which is a completely re-written R version of the program. Approximately half of the run time as been shaved off, the program is now cross-compatible with Windows and \*NIX systems, the file space usage is down to roughly a tenth of what it was, and graphical outputs have been made easier to import or now produce portable SVG files with embedded hyperlinks.**
 
 R Version 3.1.0 (June 8th, 2021)
 
@@ -76,5 +76,6 @@ We have developed the **CytoTalk algorithm for *de novo* construction of a signa
 ## Contact  
 
 Kai Tan, tank1@chop.edu<br />
+Yuxuan Hu, huyuxuan@xidian.edu.cn<br />
 
 
