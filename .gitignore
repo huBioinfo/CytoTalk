@@ -1,0 +1,6 @@
+.Rproj.user
+.Rhistory
+inst/doc
+test_script.R*
+/doc/
+/Meta/

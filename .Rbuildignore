@@ -1,0 +1,11 @@
+^CytoTalk\.Rproj$
+^\.Rproj\.user$
+
+^docs$
+^doc$
+^Meta$
+
+^README\.Rmd$
+^LICENSE\.md$
+^test_script\.R$
+^test_script\.Rmd$

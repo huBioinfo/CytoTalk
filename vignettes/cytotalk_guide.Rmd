@@ -1,0 +1,250 @@
+---
+title: "CytoTalk Guide"
+author: "Yuxuan Hu, Shane Drabing, Kai Tan (PI)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{CytoTalk Guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
+)
+```
+
+### Background
+
+Signal transduction is the primary mechanism for cell-cell communication and
+scRNA-seq technology holds great promise for studying this communication at
+high levels of resolution. Signaling pathways are highly dynamic and cross-talk
+among them is prevalent. Due to these two features, simply examining expression
+levels of ligand and receptor genes cannot reliably capture the overall
+activities of signaling pathways and the interactions among them.
+
+<div align=center>
+<img src="https://raw.githubusercontent.com/tanlabcode/CytoTalk/master/docs/cytotalk_diagram.png" width="480px" />
+</div>
+
+### Prerequisites
+
+CytoTalk requires a Python module to operate correctly. To install the
+[`pcst_fast` module](https://github.com/fraenkel-lab/pcst_fast), please run
+this command *before* using CytoTalk:
+
+``` console
+pip install git+https://github.com/fraenkel-lab/pcst_fast.git
+```
+
+CytoTalk outputs a SIF file for use in Cytoscape. Please [install
+Cytoscape](https://cytoscape.org/download.html) to view the whole output
+network. Additionally, you'll have to install Graphviz and add the `dot`
+executable to your PATH. See the [Cytoscape downloads
+page](https://graphviz.org/download/) for more information.
+
+### Preparation
+
+Let's assume we have a folder called "scRNAseq-data", filled with single-cell
+RNA sequencing datasets. Here's an example directory structure:
+
+```{r}
+#> ── scRNAseq-data
+#>    ├─ scRNAseq_BasalCells.csv
+#>    ├─ scRNAseq_BCells.csv
+#>    ├─ scRNAseq_EndothelialCells.csv
+#>    ├─ scRNAseq_Fibroblasts.csv
+#>    ├─ scRNAseq_LuminalEpithelialCells.csv
+#>    ├─ scRNAseq_Macrophages.csv
+#>    └─ scRNAseq_TCells.csv
+```
+
+<br />
+
+⚠ **IMPORTANT** ⚠
+
+Notice all of these files have the prefix “scRNAseq\_” and the extension
+“.csv”; CytoTalk looks for files matching this pattern, so be sure to
+replicate it with your filenames. Let’s try reading in the folder:
+
+``` r
+dir_in <- "~/Tan-Lab/scRNAseq-data"
+lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
+table(lst_scrna$cell_types)
+```
+
+```{r}
+#>  BasalCells                 BCells       EndothelialCells 
+#>         392                    743                    251 
+#> Fibroblasts LuminalEpithelialCells            Macrophages 
+#>         700                    459                    186 
+#>      TCells 
+#>        1750
+```
+
+The outputted names are all the cell types we can choose to run CytoTalk
+against. Alternatively, we can use CellPhoneDB-style input, where one
+file is our data matrix, and another file maps cell types to columns
+(i.e. metadata):
+
+```{r}
+#> ── scRNAseq-data-cpdb
+#>    ├─ sample_counts.txt
+#>    └─ sample_meta.txt
+```
+
+There is no specific pattern required for this type of input, as both
+filepaths are required for the function:
+
+``` r
+fpath_mat <- "~/Tan-Lab/scRNAseq-data-cpdb/sample_counts.txt"
+fpath_meta <- "~/Tan-Lab/scRNAseq-data-cpdb/sample_meta.txt"
+lst_scrna <- CytoTalk::read_matrix_with_meta(fpath_mat, fpath_meta)
+table(lst_scrna$cell_types)
+```
+
+```{r}
+#> Myeloid NKcells_0 NKcells_1    Tcells 
+#>       1         5         3         1
+```
+
+Finally, you can compose your own input list quite easily, simply have a
+matrix of either count or transformed data and a vector detailing the
+cell types of each column:
+
+``` r
+mat <- matrix(rpois(90, 5), ncol = 3)
+cell_types <- c("TypeA", "TypeB", "TypeA")
+lst_scrna <- CytoTalk:::new_named_list(mat, cell_types)
+table(lst_scrna$cell_types)
+```
+
+```{r}
+#> TypeA TypeB 
+#>     2     1
+```
+
+### Running CytoTalk
+
+Without further ado, let's run CytoTalk!
+
+``` r
+# read in data folder
+dir_in <- "~/Tan-Lab/scRNAseq-data"
+lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
+
+# set required parameters
+type_a <- "Fibroblasts"
+type_b <- "LuminalEpithelialCells"
+
+# run CytoTalk process
+results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b)
+```
+
+```{r}
+#> [1 / 8] (11:15:28) Preprocessing...
+#> [2 / 8] (11:16:13) Mutual information matrix...
+#> [3 / 8] (11:20:19) Indirect edge-filtered network...
+#> [4 / 8] (11:20:37) Integrate network...
+#> [5 / 8] (11:21:44) PCSF...
+#> [6 / 8] (11:21:56) Determine best signaling network...
+#> [7 / 8] (11:21:58) Generate network output...
+#> [8 / 8] (11:21:59) Analyze pathways...
+```
+
+All we need for a default run is the named list and selected cell types
+("Macrophages" and "LuminalEpithelialCells"). The most important optional
+parameters to look at are `cutoff_a`, `cutoff_b`, and `beta_max`; details on
+these can be found in the help page for the `run_cytotalk` function (see
+`?run_cytotalk`). As the process runs, we see messages print to the console for
+each sub process.
+
+Here is what the structure of the output list looks like (abbreviated):
+
+```{r}
+#> str(CytoTalk::result_cyto)
+
+#>
+#> List of 5
+#>  $ params
+#>  $ pem
+#>  $ integrated_net
+#>   ..$ nodes
+#>   ..$ edges
+#>  $ pcst
+#>   ..$ occurances
+#>   ..$ ks_test_pval
+#>   ..$ final_network
+#>  $ pathways
+#>   ..$ raw
+#>   ..$ graphs
+#>   ..$ df_pval
+```
+
+In the order of increasing effort, let's take a look at some of the results.
+Let's begin with the `results$pathways` item. This list item contains `DiagrammeR`
+graphs, which are viewable in RStudio, or can be exported if the `dir_out`
+parameter is specified during execution. Here is an example pathway
+neighborhood:
+
+<div align=center>
+<img src="https://raw.githubusercontent.com/tanlabcode/CytoTalk/master/docs/pathway.svg" width="480px" />
+</div>
+
+Note that the exported SVG files (see `dir_out` parameter) are interactive,
+with hyperlinks to GeneCards and WikiPI. Green edges are directed from ligand
+to receptor. Additionally, if we specify an output directory, we can see a
+"cytoscape" sub-folder, which includes a SIF file read to import and two tables
+that can be attached to the network and used for styling. Here's an example of
+a styled Cytoscape network:
+
+<div align=center>
+<img src="https://raw.githubusercontent.com/tanlabcode/CytoTalk/master/docs/cytoscape_network.svg" width="480px" />
+</div>
+<br />
+
+There are a number of details we can glean from these graphs, such as node
+prize (side of each node), edge cost (inverse edge width), Preferential
+Expression Measure (intensity of each color), cell type (based on color, and
+shape in the Cytoscape output), and interaction type (dashed lines for
+crosstalk, solid for intracellular).
+
+If we want to be more formal with the pathway analysis, we can look at some
+scores for each neighborhood in the `results$pathways$raw` item. This list
+provides extracted subnetworks, based on the final network from the PCST.
+Additionally, the `results$pathways$df_pval` item contains a summary of the
+neighborhood size for each pathway, along with theoretical (Gamma distribution)
+test values that are found by contrsting the found pathway to random pathways
+from the integrated network. $p$-values for node prize, edge cost, and
+potential are calculated separately.
+
+## Session Info
+
+```{r}
+sessionInfo()
+```
+
+## Citing CytoTalk
+
+- Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal
+  transduction networks using single-cell transcriptomic data. ***Science
+  Advances***, 2021, 7(16): eabf1356.
+
+  <https://advances.sciencemag.org/content/7/16/eabf1356>
+
+- Hu Y, Peng T, Gao L, Tan K. CytoTalk: *De novo* construction of signal
+  transduction networks using single-cell RNA-Seq data. *bioRxiv*, 2020.
+
+  <https://www.biorxiv.org/content/10.1101/2020.03.29.014464v1>
+
+## References
+
+- Shannon P, et al. Cytoscape: a software environment for integrated models of
+  biomolecular interaction networks. *Genome Research*, 2003, 13: 2498-2504.
+
+## Contact  
+
+Kai Tan, tank1@chop.edu
+
+<br />
