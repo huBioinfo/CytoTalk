@@ -87,7 +87,7 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
 options(timeout = 600)  # Giving more time for downloading.
-devtools::install_github("tanlabcode/CytoTalk", ref = "feature_RcallPy")
+devtools::install_github("huBioinfo/CytoTalk")
 ```
 
 ### Preparation
