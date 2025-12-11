@@ -193,8 +193,7 @@ type_a <- "Fibroblasts"
 type_b <- "LuminalEpithelialCells"
 
 # run CytoTalk process
-library(reticulate)
-use_condaenv("CytoTalk_PCSF", required = TRUE)
+reticulate::use_condaenv("CytoTalk_PCSF", required = TRUE)
 results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b, pcg = CytoTalk::pcg_mouse, lrp = CytoTalk::lrp_mouse, dir_out = "./Output")
 ```
 
