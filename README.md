@@ -72,11 +72,10 @@ Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) and
 if (!requireNamespace("reticulate", quietly = TRUE)) {
   install.packages("reticulate")
 }
-library(reticulate)  # To install and call Python modules from R.
-conda_create(envname = "PCSF", "python=3.10")  # Create a new Conda environment to facilitate the Python module installation. python=3.10 is compatible with numpy=1.26
-conda_install(envname = "PCSF", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.
-conda_install(envname = "PCSF", "numpy=1.26")  # Avoid using numpy>=2.0, which is not compatible with the python module "pcst_fast".
-conda_install(envname = "PCSF", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
+reticulate::conda_create(envname = "CytoTalk_PCSF", "python=3.10")  # Create a new Conda environment to facilitate the Python module installation. python=3.10 is compatible with numpy=1.26
+reticulate::conda_install(envname = "CytoTalk_PCSF", "pybind11")  # Install two necessary Python modules for correctly compiling and using the "pcst_fast" Python module.
+reticulate::conda_install(envname = "CytoTalk_PCSF", "numpy=1.26")  # Avoid using numpy>=2.0, which is not compatible with the python module "pcst_fast".
+reticulate::conda_install(envname = "CytoTalk_PCSF", "git+https://github.com/fraenkel-lab/pcst_fast.git", pip = TRUE) # To install the "pcst_fast" module.
 ```
 
 (3) Install the CytoTalk package in the *R* console.
@@ -86,7 +85,7 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
 options(timeout = 600)  # Giving more time for downloading.
-devtools::install_github("tanlabcode/CytoTalk", ref = "feature_RcallPy")
+devtools::install_github("huBioinfo/CytoTalk")
 ```
 
 ### Preparation
@@ -115,7 +114,7 @@ Notice all of these files have the prefix “scRNAseq\_” and the extension
 replicate it with your filenames. Let’s try reading in the folder:
 
 ``` r
-dir_in <- "~/Tan-Lab/scRNAseq-data"
+dir_in <- "./scRNAseq-data"
 lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
 table(lst_scrna$cell_types)
 ```
@@ -144,8 +143,8 @@ There is no specific pattern required for this type of input, as both
 filepaths are required for the function:
 
 ``` r
-fpath_mat <- "~/Tan-Lab/scRNAseq-data-cpdb/sample_counts.txt"
-fpath_meta <- "~/Tan-Lab/scRNAseq-data-cpdb/sample_meta.txt"
+fpath_mat <- "./scRNAseq-data-cpdb/sample_counts.txt"
+fpath_meta <- "./scRNAseq-data-cpdb/sample_meta.txt"
 lst_scrna <- CytoTalk::read_matrix_with_meta(fpath_mat, fpath_meta)
 table(lst_scrna$cell_types)
 ```
@@ -184,7 +183,7 @@ Without further ado, let’s run CytoTalk!
 
 ``` r
 # read in data folder
-dir_in <- "~/Tan-Lab/scRNAseq-data"
+dir_in <- "./scRNAseq-data"
 lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
 
 # set required parameters
@@ -192,7 +191,8 @@ type_a <- "Fibroblasts"
 type_b <- "LuminalEpithelialCells"
 
 # run CytoTalk process
-results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b)
+reticulate::use_condaenv("CytoTalk_PCSF", required = TRUE) #Use a specific conda environment that contains the "pcst_fast" python module.
+results <- CytoTalk::run_cytotalk(lst_scrna, type_a, type_b, pcg = CytoTalk::pcg_mouse, lrp = CytoTalk::lrp_mouse, dir_out = "./Output")
 ```
 
 ``` console
