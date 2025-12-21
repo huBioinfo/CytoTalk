@@ -90,19 +90,17 @@ devtools::install_github("huBioinfo/CytoTalk")
 
 ### Preparation
 
-Let’s assume we have a folder called “scRNAseq-data”, filled with
-single-cell RNA sequencing datasets. Here’s an example directory
+Let’s assume we have an input folder called “ExampleInput”, filled with
+a single-cell RNA sequencing dataset. Here’s an example directory
 structure:
 
 ``` txt
-── scRNAseq-data
+── ExampleInput
    ├─ scRNAseq_BasalCells.csv
-   ├─ scRNAseq_BCells.csv
    ├─ scRNAseq_EndothelialCells.csv
    ├─ scRNAseq_Fibroblasts.csv
    ├─ scRNAseq_LuminalEpithelialCells.csv
-   ├─ scRNAseq_Macrophages.csv
-   └─ scRNAseq_TCells.csv
+   └─ scRNAseq_Macrophages.csv
 ```
 
 <br />
@@ -114,78 +112,24 @@ Notice all of these files have the prefix “scRNAseq\_” and the extension
 replicate it with your filenames. Let’s try reading in the folder:
 
 ``` r
-dir_in <- "./scRNAseq-data"
+# read in data folder
+dir_in <- "./ExampleInput"
 lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
 table(lst_scrna$cell_types)
 ```
 
 ``` console
- BasalCells                 BCells       EndothelialCells 
-        392                    743                    251 
-Fibroblasts LuminalEpithelialCells            Macrophages 
-        700                    459                    186 
-     TCells 
-       1750
+            BasalCells       EndothelialCells            Fibroblasts LuminalEpithelialCells            Macrophages 
+                   392                    251                    700                    459                    186 
 ```
 
 The outputted names are all the cell types we can choose to run CytoTalk
-against. Alternatively, we can use CellPhoneDB-style input, where one
-file is our data matrix, and another file maps cell types to columns
-(i.e. metadata):
+against. 
 
-``` txt
-── scRNAseq-data-cpdb
-   ├─ sample_counts.txt
-   └─ sample_meta.txt
-```
-
-There is no specific pattern required for this type of input, as both
-filepaths are required for the function:
-
-``` r
-fpath_mat <- "./scRNAseq-data-cpdb/sample_counts.txt"
-fpath_meta <- "./scRNAseq-data-cpdb/sample_meta.txt"
-lst_scrna <- CytoTalk::read_matrix_with_meta(fpath_mat, fpath_meta)
-table(lst_scrna$cell_types)
-```
-
-``` console
-Myeloid NKcells_0 NKcells_1    Tcells 
-      1         5         3         1
-```
-
-If you have a `SingleCellExperiment` object with `logcounts` and
-`colnames` loaded onto it, you can create an input list like so:
-
-``` r
-lst_scrna <- CytoTalk::from_single_cell_experiment(sce)
-```
-
-Finally, you can compose your own input list quite easily, simply have a
-matrix of either count or transformed data and a vector detailing the
-cell types of each column:
-
-``` r
-mat <- matrix(rpois(90, 5), ncol = 3)
-cell_types <- c("TypeA", "TypeB", "TypeA")
-lst_scrna <- CytoTalk:::new_named_list(mat, cell_types)
-table(lst_scrna$cell_types)
-```
-
-``` console
-TypeA TypeB 
-    2     1
-```
 
 ### Running CytoTalk
 
-Without further ado, let’s run CytoTalk!
-
 ``` r
-# read in data folder
-dir_in <- "./scRNAseq-data"
-lst_scrna <- CytoTalk::read_matrix_folder(dir_in)
-
 # set required parameters
 type_a <- "Fibroblasts"
 type_b <- "LuminalEpithelialCells"
