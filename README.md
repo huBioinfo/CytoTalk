@@ -226,7 +226,7 @@ for node prize, edge cost, and potential are calculated separately.
 
 ## Update Log
 
-2025-12-14:We referred to CellChat's ligand-receptor database and reorganized the lrp data file for CytoTalk. Currently, lrp_human contains 3036 rows of ligand data, while lrp_house contains 3265 rows of ligand data. In addition, we have added the use_cache parameter to the main function "run_cytotalk", where TRUE is enabled and False is disabled. The purpose is to save the most time-consuming intermediate results in the calculation process to a local file, so that when the same parameter/cell type combination is repeatedly run in the future, the cache file can be directly loaded to skip the repeated calculation, which is convenient for debugging and reduces time waste. (Updated by Dongxu Yu)
+2025-12-14:We referred to CellChat's ligand-receptor database and reorganized the lrp data file for CytoTalk. Currently, lrp_human contains 3039 rows of ligand data, while lrp_house contains 3203 rows of ligand data. In addition, we have added the use_cache parameter to the main function "run_cytotalk", where TRUE is enabled and False is disabled. The purpose is to save the most time-consuming intermediate results in the calculation process to a local file, so that when the same parameter/cell type combination is repeatedly run in the future, the cache file can be directly loaded to skip the repeated calculation, which is convenient for debugging and reduces time waste. (Updated by Dongxu Yu)
 
 2025-11-9:We have expanded the pairings of human and mouse pre-existing ligands and receptors to facilitate a better search for pathways. (Updated by Dongxu Yu)
 
