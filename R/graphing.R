@@ -113,11 +113,17 @@ graph_pathway <- function(df_net_sub) {
     index_lt <- (df_net_sub$node1_pem < df_net_sub$node2_pem)
     index1 <- c("node1", "node1_type", "node1_prize", "node1_pem")
     index2 <- c("node2", "node2_type", "node2_prize", "node2_pem")
-    for (i in seq_len(length(index_lt))) {
-        if (index_lt[i]) {
-            df_net_sub[i, index2] <- df_cpy[i, index1]
-            df_net_sub[i, index1] <- df_cpy[i, index2]
+    for (i in seq_len(nrow(df_net_sub))) {
+      if (isTRUE(df_net_sub$is_ct_edge[i])) {
+        df_net_sub[i, index1] <- df_cpy[i, index2]
+        df_net_sub[i, index2] <- df_cpy[i, index1]
+      } else {
+        if (!is.na(df_cpy$node1_pem[i]) && !is.na(df_cpy$node2_pem[i]) &&
+            (df_cpy$node1_pem[i] < df_cpy$node2_pem[i])) {
+          df_net_sub[i, index1] <- df_cpy[i, index2]
+          df_net_sub[i, index2] <- df_cpy[i, index1]
         }
+      }
     }
 
     # reorder edges
