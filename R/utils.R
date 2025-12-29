@@ -42,7 +42,14 @@ dir_full <- function(folder, ...) {
 
 #' @noRd
 totitle <- function(x) {
-    gsub("^([A-z])", "\\U\\1", tolower(x), perl = TRUE)
+  x <- as.character(x)
+  is_all_upper <- x == toupper(x)
+  
+  out <- x
+  idx <- !is_all_upper
+  out[idx] <- gsub("^([A-Za-z])", "\\U\\1", tolower(out[idx]), perl = TRUE)
+  
+  out
 }
 
 #' @noRd
